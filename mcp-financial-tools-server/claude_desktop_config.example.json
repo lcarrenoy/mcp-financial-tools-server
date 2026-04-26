@@ -1,0 +1,22 @@
+# ── Configuración para Claude Desktop ────────────────────────────────────────
+# Añadir esto a: %APPDATA%\Claude\claude_desktop_config.json (Windows)
+#                ~/Library/Application Support/Claude/claude_desktop_config.json (Mac)
+{
+  "mcpServers": {
+    "financial-tools": {
+      "command": "uv",
+      "args": ["run", "python", "-m", "src.server.main"],
+      "cwd": "/ruta/a/mcp-financial-tools",
+      "env": {
+        "DATABASE_URL": "postgresql://user:password@localhost:5432/financial_db",
+        "ANTHROPIC_API_KEY": "sk-ant-..."
+      }
+    }
+  }
+}
+
+# ── Para usar con LangGraph ───────────────────────────────────────────────────
+# Ver: src/examples/langgraph_agent.py
+
+# ── Para testing directo ──────────────────────────────────────────────────────
+# uv run python tests/test_tools.py
